@@ -1,5 +1,5 @@
 var KEYSIZE = (window.innerWidth)/14
-var MAXKEYSIZE = 40
+var MAXKEYSIZE = 60
 if(KEYSIZE > MAXKEYSIZE) KEYSIZE = MAXKEYSIZE
 var TOOLSSIZE = KEYSIZE * 4
 var KEYROUND = window.innerHeight/128
