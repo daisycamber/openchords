@@ -61,16 +61,16 @@ function chord(text) {
     octavemod1 = 1
     octavemod2 = 1
   }
-  recordedChords[selectedMeasure] = [keyboard[chordKeys[currentKey][text][chordMode][0] + (octave * 12) + 3],keyboard[chordKeys[currentKey][text][chordMode][1] + (octave * 12)+3],keyboard[chordKeys[currentKey][text][chordMode][2] + (octave * 12)+3]]
+  recordedChords[selectedMeasure] = [keyboard[chordKeys[currentInterval][currentKey][text][chordMode][0] + (octave * 12) + 3],keyboard[chordKeys[currentInterval][currentKey][text][chordMode][1] + (octave * 12)+3],keyboard[chordKeys[currentInterval][currentKey][text][chordMode][2] + (octave * 12)+3]]
   console.log(recordedChords[selectedMeasure][0])
   console.log(recordedChords[selectedMeasure][1])
   console.log(recordedChords[selectedMeasure][2])
   synth1.triggerAttackRelease(recordedChords[selectedMeasure][0], '8n')
   synth2.triggerAttackRelease(recordedChords[selectedMeasure][1], '8n')
   synth3.triggerAttackRelease(recordedChords[selectedMeasure][2], '8n')
-  chordMarkers[selectedMeasure][0].y =  KEYSIZE * (-1 *((chordKeys[currentKey][text][chordMode][0] + (octave * 12) + 29)) + numKeys)
-  chordMarkers[selectedMeasure][1].y =  KEYSIZE * (-1 *((chordKeys[currentKey][text][chordMode][1] + (octave * 12) + 29)) + numKeys)
-  chordMarkers[selectedMeasure][2].y =  KEYSIZE * (-1 *((chordKeys[currentKey][text][chordMode][2] + (octave * 12) + 29)) + numKeys)
+  chordMarkers[selectedMeasure][0].y =  KEYSIZE * (-1 *((chordKeys[currentInterval][currentKey][text][chordMode][0] + (octave * 12) + 29)) + numKeys)
+  chordMarkers[selectedMeasure][1].y =  KEYSIZE * (-1 *((chordKeys[currentInterval][currentKey][text][chordMode][1] + (octave * 12) + 29)) + numKeys)
+  chordMarkers[selectedMeasure][2].y =  KEYSIZE * (-1 *((chordKeys[currentInterval][currentKey][text][chordMode][2] + (octave * 12) + 29)) + numKeys)
 
   chordMarkers[selectedMeasure][0].visible = true;
   chordMarkers[selectedMeasure][1].visible = true;

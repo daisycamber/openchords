@@ -81,7 +81,7 @@ function addKeyDropdowns(){
       intervalText.text = intervals[Math.ceil(event.stageY/KEYSIZE)-2]
       currentInterval = intervalText.text
       updateKeys();
-
+      clearChords();
     });
     intervalDropdown.addChild(key)
     dropdownKey.addChild(dropdownKeyText);

@@ -1,9 +1,9 @@
 var KEYSIZE = (window.innerWidth)/14
-var MAXKEYSIZE = 60
+var MAXKEYSIZE = 70
 if(KEYSIZE > MAXKEYSIZE) KEYSIZE = MAXKEYSIZE
 var TOOLSSIZE = KEYSIZE * 4
 var KEYROUND = window.innerHeight/128
-var TEXTTYPE = KEYSIZE/2 + "px Arial"
+var TEXTTYPE = "bold " + KEYSIZE/2 + "px Arial"
 var SCROLLSIZE = KEYSIZE
 var SCROLLROUND = SCROLLSIZE/2
 var BACKGROUNDCOLOR = "#DF0000"

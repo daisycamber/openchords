@@ -14,7 +14,7 @@ function scroll(){
     intervalDropdown.visible = false
   })
   stage.on("stagemousemove", function(evt) {
-    if(mouseDown && lastY > 0 && lastX > 0) {// && pianoKeys.y + evt.stageY - lastY <= KEYSIZE * 50 && pianoKeys.y + evt.stageY - lastY >=KEYSIZE * -40){
+    if(mouseDown && lastY > 0 && lastX > 0) {
       pianoKeysContainer.y = pianoKeysContainer.y + evt.stageY - lastY
       chordsContainer.y = chordsContainer.y + evt.stageY - lastY
     }
