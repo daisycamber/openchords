@@ -1,7 +1,7 @@
 var stage
 function main(){
   stage = new createjs.Stage("canvas");
-  createjs.Touch.enable(stage, false, true)
+  createjs.Touch.enable(stage)
   stage.canvas.width = window.innerWidth-4;
   stage.canvas.height = window.innerHeight-4;
 
