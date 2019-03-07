@@ -1,10 +1,13 @@
 var pianoKeysContainer
 var pianoKeys = []
 var keysText = []
+// TODO Split synths into array1
 var synth = new Tone.Synth().toMaster()
 var synth1 = new Tone.Synth().toMaster()
 var synth2 = new Tone.Synth().toMaster()
 var synth3 = new Tone.Synth().toMaster()
+
+
 function addPianoKeys(){
 
   // Add keys

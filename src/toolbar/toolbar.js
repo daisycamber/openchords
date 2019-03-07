@@ -2,12 +2,34 @@ var toolbar;
 var currentChord = 0
 var chordMode = 0
 
+// UPPER RIGHT:
+// TODO add 7th, 9th, 13th
+// TODO add notes dropdown (eg 1 Note, 2 Notes, to 6 Notes)
+// TODO ADD bassline toggle
+// TODO add labels to the Chords
+var chordLabels = []
+
+function addChordLabels(){
+  for(var i = 0; i < 8; i++){
+    chordLabels[i] =  new createjs.Text("", SUBTEXTTYPE, "#000000")
+    chordLabels[i].x = (((stage.canvas.width)-KEYSIZE)/8) * i + KEYSIZE * 1.1
+    chordLabels[i].y = KEYSIZE * 4.1
+    stage.addChild(chordLabels[i])
+  }
+}
+function clearChordLabels(){
+  for(var i = 0; i < 8; i++){
+    chordLabels[i].visible = false;
+  }
+}
+
 function chordCallback(chord){
   synth1.triggerAttackRelease(recordedChords[chord][0], '8n')
   synth2.triggerAttackRelease(recordedChords[chord][1], '8n')
   synth3.triggerAttackRelease(recordedChords[chord][2], '8n')
 }
 function addToolBar(){
+  addChordLabels();
   setInterval(function(){
     if(currentChord < recordedChords.length){
       chordCallback(currentChord)
@@ -67,7 +89,7 @@ function addToolBar(){
     });
     keyContainer.addChild(key);
     var text =  new createjs.Text(chords[i], TEXTTYPE, "#000000")
-    text.x = KEYSIZE/5
+    text.x = KEYSIZE/10
     text.y = KEYSIZE/3
     keyContainer.addChild(text)
     toolbar.addChild(keyContainer)
@@ -75,22 +97,33 @@ function addToolBar(){
 
   var octaves = ["First Octave", "Second Octave", "Third Octave", "Fourth Octave", "Fifth Octave", "Sixth Octave", "Seventh Octave"]
   // Octave buttons button
+  var octaveDownButton = new createjs.Shape();
+  octaveDownButton.graphics.beginFill("White").drawRoundRectComplex(0, KEYSIZE * 3, KEYSIZE, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
+  toolbar.addChild(octaveDownButton)
   var octaveDown = new createjs.Shape();
   octaveDown.graphics.beginFill("#000000").drawPolyStar(KEYSIZE/2, KEYSIZE * 3.5, KEYSIZE * 0.5, 3, 0, 90);
-  octaveDown.addEventListener("click", function(event) {
+  octaveDownButton.addEventListener("click", function(event) {
     if(octave >= 1){octave--;}
     text.text = octaves[octave]
   });
-  toolbar.addChild(octaveDown)
+
+  toolbar.addChild(octaveDown);
+
+  var octaveTab = new createjs.Shape();
+  octaveTab.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE, KEYSIZE * 3, KEYSIZE * 5, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
+  toolbar.addChild(octaveTab)
 
   var text =  new createjs.Text("Fourth Octave", TEXTTYPE, "#000000")
   text.x = KEYSIZE * 2
   text.y = KEYSIZE * 3.3
   toolbar.addChild(text)
 
+  var octaveUpButton = new createjs.Shape();
+  octaveUpButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 6, KEYSIZE * 3, KEYSIZE, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
+  toolbar.addChild(octaveUpButton)
   var octaveUp = new createjs.Shape();
   octaveUp.graphics.beginFill("#000000").drawPolyStar(KEYSIZE * 6.5, KEYSIZE * 3.5, KEYSIZE * 0.5, 3, 0, 30);
-  octaveUp.addEventListener("click", function(event) {
+  octaveUpButton.addEventListener("click", function(event) {
     if(octave <= 5){octave++;}
     text.text = octaves[octave]
   });
@@ -122,7 +155,7 @@ function addToolBar(){
     chordMode = 1
   });
   toolbar.addChild(firstInversion)
-  var firstInversionText =  new createjs.Text("First Inversion", TEXTTYPE, "#000000")
+  var firstInversionText =  new createjs.Text("1st Inversion", TEXTTYPE, "#000000")
   firstInversionText.x = KEYSIZE * 7.3
   firstInversionText.y = KEYSIZE * 1.3
   toolbar.addChild(firstInversionText)
@@ -136,8 +169,8 @@ function addToolBar(){
     chordMode = 2
   });
   toolbar.addChild(secondInversion)
-  var secondInversionText =  new createjs.Text("Second Inversion", TEXTTYPE, "#000000")
-  secondInversionText.x = KEYSIZE * 7.1
+  var secondInversionText =  new createjs.Text("2nd Inversion", TEXTTYPE, "#000000")
+  secondInversionText.x = KEYSIZE * 7.3
   secondInversionText.y = KEYSIZE * 2.3
   toolbar.addChild(secondInversionText)
 
@@ -169,7 +202,7 @@ function addToolBar(){
   var openchordsButton = new createjs.Shape();
   openchordsButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 11, 0, KEYSIZE * 3, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   openchordsButton.addEventListener("click", function(event) {
-    window.open("http://google.com");
+    window.open("http://openchords.org");
   });
   toolbar.addChild(openchordsButton)
   var openchordsText =  new createjs.Text("OpenChords", TEXTTYPE, "#000000")
@@ -181,7 +214,7 @@ function addToolBar(){
   var tutorialButton = new createjs.Shape();
   tutorialButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 11, KEYSIZE, KEYSIZE * 3, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   tutorialButton.addEventListener("click", function(event) {
-    window.open("http://google.com");
+    window.open(""); // TODO Add tutorial here
   });
   toolbar.addChild(tutorialButton)
   var tutorialText =  new createjs.Text("Tutorial", TEXTTYPE, "#000000")
@@ -193,7 +226,7 @@ function addToolBar(){
   var creditsButton = new createjs.Shape();
   creditsButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 11, KEYSIZE*2, KEYSIZE * 3, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   creditsButton.addEventListener("click", function(event) {
-    window.open("http://google.com");
+    window.open("credits.html");
   });
   toolbar.addChild(creditsButton)
   var creditsText =  new createjs.Text("Credits", TEXTTYPE, "#000000")
