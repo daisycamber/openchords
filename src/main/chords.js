@@ -5,23 +5,32 @@ var octave = 3
 var chordMarkers = []
 var recordedChords = []
 
+// 9 synths
+var synths = []
+
+// Called when chord is played
+function chordCallback(chordNumber){
+  for(var i = 0; i < recordedChords[chordNumber].length; i++){
+    synths[i].triggerAttackRelease(recordedChords[chordNumber][i], NOTELENGTH)
+  }
+}
 
 function clearChords(){
   for (var i = 0; i < 8; i++){
-    chordMarkers[i][0].visible = false
-    chordMarkers[i][1].visible = false
-    chordMarkers[i][2].visible = false
+    for(var j = 0; j < 9; j++){
+      chordMarkers[i][j].visible = false
+    }
   }
   recordedChords = []
   clearChordLabels()
 }
 
 function deleteChord(){
-    chordMarkers[selectedMeasure][0].visible = false
-    chordMarkers[selectedMeasure][1].visible = false
-    chordMarkers[selectedMeasure][2].visible = false
-    recordedChords[selectedMeasure] = []
-    chordLabels[selectedMeasure].visible = false
+  for(var j = 0; j < 9; j++){
+    chordMarkers[selectedMeasure][j].visible = false
+  }
+  recordedChords[selectedMeasure] = []
+  chordLabels[selectedMeasure].visible = false
 }
 
 function addChordMarkers() {
@@ -30,59 +39,85 @@ function addChordMarkers() {
 
   for (var i = 0; i < 8; i++){
     chordMarkers[i] = []
-    chordMarkers[i][0] = new createjs.Shape();
-    chordMarkers[i][0].graphics.beginFill("White")
-    chordMarkers[i][0].graphics.drawRect(KEYSIZE+((stage.canvas.width-KEYSIZE)/8) * i,0, (stage.canvas.width-KEYSIZE)/8, KEYSIZE);
-    chordMarkers[i][0].visible = false
-    chordsContainer.addChild(chordMarkers[i][0]);
-
-    chordMarkers[i][1] = new createjs.Shape();
-    chordMarkers[i][1].graphics.beginFill("White")
-    chordMarkers[i][1].graphics.drawRect(KEYSIZE+((stage.canvas.width-KEYSIZE)/8) * i, 0, (stage.canvas.width-KEYSIZE)/8, KEYSIZE);
-    chordMarkers[i][1].visible = false
-    chordsContainer.addChild(chordMarkers[i][1]);
-
-    chordMarkers[i][2] = new createjs.Shape();
-    chordMarkers[i][2].graphics.beginFill("White")
-    chordMarkers[i][2].graphics.drawRect(KEYSIZE+((stage.canvas.width-KEYSIZE)/8) * i,0, (stage.canvas.width-KEYSIZE)/8, KEYSIZE);
-    chordMarkers[i][2].visible = false
-    chordsContainer.addChild(chordMarkers[i][2]);
+    for(var j = 0; j < 9; j++){
+      chordMarkers[i][j] = new createjs.Shape();
+      chordMarkers[i][j].graphics.beginFill("White")
+      chordMarkers[i][j].graphics.drawRect(KEYSIZE+((stage.canvas.width-KEYSIZE)/8) * i,0, (stage.canvas.width-KEYSIZE)/8, KEYSIZE);
+      chordMarkers[i][j].visible = false
+      chordsContainer.addChild(chordMarkers[i][j]);
+    }
   }
 }
 // Add a chord
 function chord(chordName) {
-  // Record the chord
-  var octavemod1 = 0
-  var octavemod2 = 0
-  var octavemod3 = 0
-  if(chordMode == 1) {
-    octavemod1 = 1
-  } else if(chordMode == 1) {
 
-    octavemod1 = 1
-    octavemod2 = 1
+  if(chordLabels[selectedMeasure] == null){
+    addMeasure(selectedMeasure)
   }
-  var note1 = chordNotes[chordKeys[currentInterval][currentKey][chordName]][chordMode][0] + (octave * 12) + 3
-  var note2 = chordNotes[chordKeys[currentInterval][currentKey][chordName]][chordMode][1] + (octave * 12) + 3
-  var note3 = chordNotes[chordKeys[currentInterval][currentKey][chordName]][chordMode][2] + (octave * 12) + 3
-  console.log(chordNotes[chordKeys[currentInterval][currentKey][chordName]][chordMode][1])
-  recordedChords[selectedMeasure] = [keyboard[note1],keyboard[note2],keyboard[note3]]
-  synth1.triggerAttackRelease(recordedChords[selectedMeasure][0], '8n')
-  synth2.triggerAttackRelease(recordedChords[selectedMeasure][1], '8n')
-  synth3.triggerAttackRelease(recordedChords[selectedMeasure][2], '8n')
-  chordMarkers[selectedMeasure][0].y =  KEYSIZE * (-1 * ((note1 + 26)) + numKeys)
-  chordMarkers[selectedMeasure][1].y =  KEYSIZE * (-1 * ((note2 + 26)) + numKeys)
-  chordMarkers[selectedMeasure][2].y =  KEYSIZE * (-1 * ((note3 + 26)) + numKeys)
-
-  chordMarkers[selectedMeasure][0].visible = true;
-  chordMarkers[selectedMeasure][1].visible = true;
-  chordMarkers[selectedMeasure][2].visible = true;
+  // Delete the chord that was there and remove the markers
+  deleteChord(selectedMeasure)
+  // These are the raw numerical values for the notes in the chord, as an array
+  var notes = []
+  // Build the chord
+  for(var i = 0; i < notesInChord; i++)
+  {
+    // First part of the chord
+    if (i < 3) {
+      notes[i] = chordNotes[chordKeys[currentInterval][currentKey][chordName]][chordMode][i] + (octave * 12) + 3
+    }
+    if(i >= 3){
+      notes[i] = chordNotes[chordKeys[currentInterval][currentKey][chordName]][chordMode][i-3] + ((octave-1) * 12) + 3
+    }
+    // Record the note as it falls on the keyboard, no longer numerical but a string value
+    recordedChords[selectedMeasure][i] = keyboard[notes[i]]
+    synths[i].triggerAttackRelease(recordedChords[selectedMeasure][i], NOTELENGTH)
+    chordMarkers[selectedMeasure][i].y =  KEYSIZE * (-1 * ((notes[i] + 26)) + numKeys)
+    chordMarkers[selectedMeasure][i].visible = true;
+  }
+  var note
+  // For adding the seventh, ninth and thirteenth
+  if(addSeventh){
+    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][0] + (octave * 12) + 3
+    recordedChords[selectedMeasure][notesInChord+0] = keyboard[note]
+    synths[notesInChord+0].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+0], NOTELENGTH)
+    chordMarkers[selectedMeasure][notesInChord+0].y =  KEYSIZE * (-1 * ((note + 26)) + numKeys)
+    chordMarkers[selectedMeasure][notesInChord+0].visible = true
+  }
+  if(addNinth){
+    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][1] + (octave * 12) + 3
+    recordedChords[selectedMeasure][notesInChord+1] = keyboard[note]
+    synths[notesInChord+1].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+1], NOTELENGTH)
+    chordMarkers[selectedMeasure][notesInChord+1].y =  KEYSIZE * (-1 * ((note + 26)) + numKeys)
+    chordMarkers[selectedMeasure][notesInChord+1].visible = true
+  }
+  if(addThirteenth){
+    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][2] + (octave * 12) + 3
+    recordedChords[selectedMeasure][notesInChord+2] = keyboard[note]
+    synths[notesInChord+2].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+2], NOTELENGTH)
+    chordMarkers[selectedMeasure][notesInChord+2].y =  KEYSIZE * (-1 * ((note + 26)) + numKeys)
+    chordMarkers[selectedMeasure][notesInChord+2].visible = true
+  }
 
   chordLabels[selectedMeasure].visible = true;
   chordLabels[selectedMeasure].text = chordKeys[currentInterval][currentKey][chordName]
-
-
+}
+// 9 + 1 synths (for chord and bass)
+function addSynths(){
+  for (var i = 0; i < 10; i++){
+    synths[i] = new Tone.Synth().toMaster()
+  }
+}
+var currentChord = 0
+function addChordPlayer(){
+  setInterval(function(){
+    if(currentChord < recordedChords.length && recordedChords[currentChord] != null){
+      chordCallback(currentChord)
+    }
+    currentChord++
+  },PLAYBACKSPEED)
 }
 function addChords(){
+  addSynths();
   addChordMarkers();
+  addChordPlayer();
 }

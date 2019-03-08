@@ -11,3 +11,7 @@ var SUBTEXTTYPE = "bold " + KEYSIZE/3 + "px Arial"
 var SCROLLSIZE = KEYSIZE
 var SCROLLROUND = SCROLLSIZE/2
 var BACKGROUNDCOLOR = "#DF0000"
+var DONATEURL = "https://www.paypal.com/donate/?token=JkaNXFUTpjU705Qc2jqmL0yPHNsQZ_UDRJC239eTWB9GP5qQz6VWKeptFnh6DUTBUdEnwm&country.x=US&locale.x="
+var PLAYBACKSPEED = 1000
+var KEYNOTELENGTH = "8n"
+var NOTELENGTH = "4n"

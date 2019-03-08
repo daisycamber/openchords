@@ -1,8 +1,10 @@
 var dropdownKeys
 var intervalDropdown
+var notesDropdown
 var currentKey = "C"
 var currentInterval = "Major"
-function addKeyDropdowns(){
+var notesInChord = 3 // Number of notes in the chord
+function addDropdowns(){
   // Key dropdown menu
   dropdownKeys = new createjs.Container(); // Add invisible container for keys
   dropdownKeys.visible = false;
@@ -88,4 +90,47 @@ function addKeyDropdowns(){
   }
   toolbar.addChild(intervalDropdown)
   toolbar.setChildIndex( intervalDropdown, toolbar.getNumChildren()-1);
+
+
+  // Notes dropdown menu
+  notesDropdown = new createjs.Container(); // Add invisible container for keys
+  notesDropdown.visible = false;
+  var notesDropdownButton = new createjs.Shape(); // Add dropdown button
+  notesDropdownButton.graphics.beginFill("White")
+  notesDropdownButton.graphics.drawRect(KEYSIZE * 7, KEYSIZE * 3, KEYSIZE * 3, KEYSIZE);
+  notesDropdownButton.addEventListener("click", function(event) {
+    console.log("clicked this meme")
+    if(notesDropdown.visible == false) { // Toggle visible
+      notesDropdown.visible = true
+    } else {
+      notesDropdown.visible = false
+    }
+  });
+  toolbar.addChild(notesDropdownButton);
+
+  var notesText =  new createjs.Text("3 Notes", TEXTTYPE, "#000000")
+  notesText.x = KEYSIZE * 7 + KEYSIZE/3;
+  notesText.y = KEYSIZE * 3 + KEYSIZE/3;
+  toolbar.addChild(notesText);
+
+  for(var i = 0; i < noteNumbers.length; i++){
+    var dropdownKey = new createjs.Container();
+    var dropdownKeyText = new createjs.Text(noteNumbers[i], TEXTTYPE, "#000000")
+    dropdownKeyText.x = KEYSIZE * 7 + KEYSIZE/3;
+    dropdownKeyText.y = KEYSIZE/3 + (KEYSIZE*4) + KEYSIZE * i;
+    var key = new createjs.Shape();
+    key.graphics.beginFill("White")
+    key.graphics.drawRect(KEYSIZE * 7,(KEYSIZE * 3) + KEYSIZE * i + KEYSIZE, KEYSIZE * 3, KEYSIZE);
+    key.addEventListener("click", function(event) {
+      notesText.text = noteNumbers[Math.ceil(event.stageY/KEYSIZE)-5]
+      notesDropdown.visible = false
+      notesInChord = Math.ceil(event.stageY/KEYSIZE)-4;
+      console.log(notesInChord);
+    });
+    notesDropdown.addChild(key)
+    dropdownKey.addChild(dropdownKeyText);
+
+    notesDropdown.addChild(dropdownKey);
+  }
+  toolbar.addChild(notesDropdown)
 }

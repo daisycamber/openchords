@@ -1,21 +1,20 @@
 var pianoKeysContainer
 var pianoKeys = []
 var keysText = []
-// TODO Split synths into array1
+// This synth is for the keyboard
 var synth = new Tone.Synth().toMaster()
-var synth1 = new Tone.Synth().toMaster()
-var synth2 = new Tone.Synth().toMaster()
-var synth3 = new Tone.Synth().toMaster()
+
 
 
 function addPianoKeys(){
 
   // Add keys
   pianoKeysContainer = new createjs.Container();
+  pianoKeysContainer.y = KEYSIZE * -25
   for (var i = 0; i < numKeys; i++){
     var container = new createjs.Container();
     container.x = 0
-    container.y = KEYSIZE * i - KEYSIZE * 25
+    container.y = KEYSIZE * i// - KEYSIZE * 25
     var text =  new createjs.Text(chromaticScale[(i) % 12], TEXTTYPE, "#000000")
     text.x = KEYSIZE/4;
     text.y = KEYSIZE/3;
