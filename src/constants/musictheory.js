@@ -59,6 +59,7 @@ var chordNotes = {
   "G# Minor":[[8,11,15],[11,15,20],[15,20,23]],
   "A# Dim5":[[10,13,16],[13,16,22],[16,22,25]],
   "D# Major":[[3,7,10],[7,10,15],[10,15,19]],
+  "A# Major":[[10,14,17],[14,17,22],[17,22,26]],
 }
 
 var chordKeys = {
@@ -243,7 +244,7 @@ var chordKeys = {
       "iv":"Eb Minor", // Eb Minor
       "v":"F Minor", // F MINOR
       "VI":"G Major", // G MAJOR
-      "VII":"A Major"], // A MAJOR
+      "VII":"A Major", // A MAJOR
     },
     "B":{
       "I":"B Major", // B MAJOR
@@ -256,32 +257,29 @@ var chordKeys = {
       "i":"B Minor", // B MINOR
       "iio":"C# Dim5", //C# DIM
       "III":"D# Major", // D# MAJOR
-      "iv":[[4,7,11],[7,11,16],[11,16,19]], // E MINOR
-      "v":[[6,9,13],[9,13,18],[13,18,21]], // F# MINOR
-      "VI":[[8,12,15],[12,15,20],[15,20,24]], // G# MAJOR
-      "VII":[[10,14,17],[14,17,22],[17,22,26]], // A# MAJOR
+      "iv":"E Minor", // E MINOR
+      "v":"F# Minor", // F# MINOR
+      "VI":"G# Major", // G# MAJOR
+      "VII":"A# Major", // A# MAJOR
     }
   },
   "Minor":{
     "C":{
-      "i":[[0,3,7],[3,7,12],[7,12,15]], // C MINOR
-      "iio":[[2,5,8],[5,8,14],[8,14,17]], // D DIM
-      "III":[[3,7,10],[7,10,15],[10,15,19]], // Eb MAJOR
-      "iv":[[5,8,12],[8,12,17],[12,17,20]], // F MINOR
-      "v":[[7,10,14],[10,14,19],[14,19,22]], // G MINOR
-      "VI":[[8,12,15],[12,15,20],[15,20,24]], // Ab MAJOR
-      "VII":[[10,14,17],[14,17,22],[17,22,26]], // Bb MAJOR
-      "I":[[0,4,7],[4,7,12],[7,12,16]], // C MAJOR
-      "ii":[[2,5,9],[5,9,14],[9,14,17]], // D MINOR
-      "iii":[[3,6,10],[6,10,15],[10,15,18]], // Eb MINOR
-      "IV":[[5,9,12],[9,12,17],[12,17,21]], // F MAJOR
-      "V":[[7,11,14],[11,14,19],[14,19,23]], // G MAJOR
-      "vi":[[8,11,15],[11,15,20],[15,20,23]], // Ab MINOR
-      "viio":[[10,13,16],[13,16,22],[16,22,25]], // Bb DIM
+      "i":"C Minor", // C MINOR
+      "iio":"D Dim5", // D DIM
+      "III":"Eb Major", // Eb MAJOR
+      "iv":"F Minor", // F MINOR
+      "v":"G Minor", // G MINOR
+      "VI":"Ab Major", // Ab MAJOR
+      "VII":"Bb Major", // Bb MAJOR
+      "I":"C Major", // C MAJOR
+      "ii":"D Minor", // D MINOR
+      "iii":"Eb Minor", // Eb MINOR
+      "IV":"F Major", // F MAJOR
+      "V":"G Major", // G MAJOR
+      "vi":"Ab Minor", // Ab MINOR
+      "viio":"Bb Dim5", // Bb DIM
     },
-    // C = 0, C# = 1, D = 2, D# = 3, E = 4, F = 5, F# = 6, G = 7, G# = 8, A = 9, A# = 10, B = 11
-    //    12      13     14      15     16     17      18     19      20     21       22      23
-    //    24      25     26
     "Db":{
       "i":[[1,4,8],[4,8,13],[8,13,16]], // Db MINOR
       "iio":[[3,6,9],[6,9,15],[9,15,17]], // Eb DIM
