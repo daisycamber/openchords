@@ -50,7 +50,7 @@ function scroll(){
       }
       else if(chordsContainer.x + (evt.stageX - lastX) >= 0){
         chordsContainer.x = 0
-        selector.x = 0
+        selector.x = (((stage.canvas.width)-KEYSIZE)/8) * selectedMeasure
 
         for(var i = 0; i < chordLabels.length; i++){
           if(chordLabels[i] != null){
