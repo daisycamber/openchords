@@ -16,6 +16,49 @@ function updateMeasureTiming(){
 }
 
 function addDropdowns(){
+  // Note length dropdown
+  noteLengthDropdown = new createjs.Container(); // Add invisible container for keys
+  noteLengthDropdown.visible = false;
+  var noteLengthDropdownButton = new createjs.Shape(); // Add dropdown button
+  noteLengthDropdownButton.graphics.beginFill("White")
+  noteLengthDropdownButton.graphics.drawRect(KEYSIZE * 6, KEYSIZE * 3, KEYSIZE, KEYSIZE);
+  noteLengthDropdownButton.addEventListener("click", function(event) {
+    console.log("clicked this meme")
+    if(noteLengthDropdown.visible == false) { // Toggle visible
+      noteLengthDropdown.visible = true
+    } else {
+      noteLengthDropdown.visible = false
+    }
+    updateMeasureTiming();
+  });
+  toolbar.addChild(noteLengthDropdownButton);
+
+  var noteLengthText =  new createjs.Text("1/2", TEXTTYPE, "#000000")
+  noteLengthText.x = KEYSIZE * 6 + KEYSIZE/8;
+  noteLengthText.y = KEYSIZE * 3 + KEYSIZE/3;
+  toolbar.addChild(noteLengthText);
+
+  for(var i = 0; i < noteLengths.length; i++){
+    var dropdownKey = new createjs.Container();
+    var dropdownKeyText = new createjs.Text(noteLengths[i], TEXTTYPE, "#000000")
+    dropdownKeyText.x = KEYSIZE * 6 + KEYSIZE/8;
+    dropdownKeyText.y = KEYSIZE/3 + (KEYSIZE*4) + KEYSIZE * i;
+    var key = new createjs.Shape();
+    key.graphics.beginFill("White")
+    key.graphics.drawRect(KEYSIZE * 6,(KEYSIZE * 3) + KEYSIZE * i + KEYSIZE, KEYSIZE, KEYSIZE);
+    key.addEventListener("click", function(event) {
+      noteLength = noteLengths[Math.ceil(event.stageY/KEYSIZE)-5]
+      noteLengthText.text = noteLength
+      noteLengthDropdown.visible = false
+      updateMeasureTiming();
+    });
+    noteLengthDropdown.addChild(key)
+    dropdownKey.addChild(dropdownKeyText);
+
+    noteLengthDropdown.addChild(dropdownKey);
+  }
+  toolbar.addChild(noteLengthDropdown)
+
   // Key dropdown menu
   dropdownKeys = new createjs.Container(); // Add invisible container for keys
   dropdownKeys.visible = false;
@@ -145,46 +188,5 @@ function addDropdowns(){
   }
   toolbar.addChild(notesDropdown)
 
-  // Note length dropdown
-  noteLengthDropdown = new createjs.Container(); // Add invisible container for keys
-  noteLengthDropdown.visible = false;
-  var noteLengthDropdownButton = new createjs.Shape(); // Add dropdown button
-  noteLengthDropdownButton.graphics.beginFill("White")
-  noteLengthDropdownButton.graphics.drawRect(KEYSIZE * 6, KEYSIZE * 3, KEYSIZE, KEYSIZE);
-  noteLengthDropdownButton.addEventListener("click", function(event) {
-    console.log("clicked this meme")
-    if(noteLengthDropdown.visible == false) { // Toggle visible
-      noteLengthDropdown.visible = true
-    } else {
-      noteLengthDropdown.visible = false
-    }
-    updateMeasureTiming();
-  });
-  toolbar.addChild(noteLengthDropdownButton);
 
-  var noteLengthText =  new createjs.Text("1/2", TEXTTYPE, "#000000")
-  noteLengthText.x = KEYSIZE * 6 + KEYSIZE/8;
-  noteLengthText.y = KEYSIZE * 3 + KEYSIZE/3;
-  toolbar.addChild(noteLengthText);
-
-  for(var i = 0; i < noteLengths.length; i++){
-    var dropdownKey = new createjs.Container();
-    var dropdownKeyText = new createjs.Text(noteLengths[i], TEXTTYPE, "#000000")
-    dropdownKeyText.x = KEYSIZE * 6 + KEYSIZE/8;
-    dropdownKeyText.y = KEYSIZE/3 + (KEYSIZE*4) + KEYSIZE * i;
-    var key = new createjs.Shape();
-    key.graphics.beginFill("White")
-    key.graphics.drawRect(KEYSIZE * 6,(KEYSIZE * 3) + KEYSIZE * i + KEYSIZE, KEYSIZE, KEYSIZE);
-    key.addEventListener("click", function(event) {
-      noteLength = noteLengths[Math.ceil(event.stageY/KEYSIZE)-5]
-      noteLengthText.text = noteLength
-      noteLengthDropdown.visible = false
-      updateMeasureTiming();
-    });
-    noteLengthDropdown.addChild(key)
-    dropdownKey.addChild(dropdownKeyText);
-
-    noteLengthDropdown.addChild(dropdownKey);
-  }
-  toolbar.addChild(noteLengthDropdown)
 }

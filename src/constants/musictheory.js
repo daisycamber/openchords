@@ -1426,4 +1426,4 @@ var chordKeys = {
   }*/
 
 }
-var intervals = ["Major","Minor","Major Pentatonic","Minor Pentatonic","Blues Major","Blues Minor","Mixolydian","Dorian","Lydian"]
+var intervals = ["Major","Minor","Major Pent.","Minor Pent.","Blues Major","Blues Minor","Mixolydian","Dorian","Lydian"]
