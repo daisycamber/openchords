@@ -118,31 +118,35 @@ function chord(chordName) {
     // Record the note as it falls on the keyboard, no longer numerical but a string value
     recordedChords[selectedMeasure][i] = keyboard[notes[i]]
     synths[i].triggerAttackRelease(recordedChords[selectedMeasure][i], chordLength)
-    chordMarkers[selectedMeasure][i].y =  KEYSIZE * (-1 * ((notes[i])) + numKeys)
+    chordMarkers[selectedMeasure][i].y =  KEYSIZE * (-1 * ((notes[i]+1)) + numKeys)
     chordMarkers[selectedMeasure][i].visible = true;
+    console.log(recordedChords[selectedMeasure][i])
   }
   var note
   // For adding the seventh, ninth and thirteenth
   if(addSeventh){
-    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][0] + (octave * 12) + 3
+    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][0] + ((octave) * 12) + 3
     recordedChords[selectedMeasure][notesInChord+0] = keyboard[note]
     synths[notesInChord+0].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+0], chordLength)
-    chordMarkers[selectedMeasure][notesInChord+0].y =  KEYSIZE * (-1 * ((note + 26)) + numKeys)
+    chordMarkers[selectedMeasure][notesInChord+0].y =  KEYSIZE * (-1 * ((note+1)) + numKeys)
     chordMarkers[selectedMeasure][notesInChord+0].visible = true
+    console.log(recordedChords[selectedMeasure][notesInChord+0])
   }
   if(addNinth){
-    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][1] + (octave * 12) + 3
+    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][1] + ((octave) * 12) + 3
     recordedChords[selectedMeasure][notesInChord+1] = keyboard[note]
     synths[notesInChord+1].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+1], chordLength)
-    chordMarkers[selectedMeasure][notesInChord+1].y =  KEYSIZE * (-1 * ((note + 26)) + numKeys)
+    chordMarkers[selectedMeasure][notesInChord+1].y =  KEYSIZE * (-1 * ((note+1)) + numKeys)
     chordMarkers[selectedMeasure][notesInChord+1].visible = true
+    console.log(recordedChords[selectedMeasure][notesInChord+1])
   }
   if(addThirteenth){
-    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][2] + (octave * 12) + 3
+    note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][2] + ((octave) * 12) + 3
     recordedChords[selectedMeasure][notesInChord+2] = keyboard[note]
     synths[notesInChord+2].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+2], chordLength)
-    chordMarkers[selectedMeasure][notesInChord+2].y =  KEYSIZE * (-1 * ((note + 26)) + numKeys)
+    chordMarkers[selectedMeasure][notesInChord+2].y =  KEYSIZE * (-1 * ((note+1)) + numKeys)
     chordMarkers[selectedMeasure][notesInChord+2].visible = true
+    console.log(recordedChords[selectedMeasure][notesInChord+2])
   }
 
   chordLabels[selectedMeasure].visible = true;
