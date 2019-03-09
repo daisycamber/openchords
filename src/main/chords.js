@@ -15,6 +15,12 @@ var synths = []
 
 // Called when chord is played
 function chordCallback(chordNumber){
+
+  // Stop all all synths
+  for(var i = 0; i < synths.length; i++){
+    synths[i].triggerRelease();
+  }
+
   var chordLength
   if(playbackChordLengths[chordNumber] == "1/8"){
     chordLength = "8n"
@@ -23,7 +29,7 @@ function chordCallback(chordNumber){
   } else if(playbackChordLengths[chordNumber] == "1/2"){
     chordLength = "2n"
   } else if(playbackChordLengths[chordNumber] == "3/4"){
-    chordLength = "3n"
+    chordLength = "1n"
   }
   else if(playbackChordLengths[chordNumber] == "1"){
     chordLength = "1n"
@@ -97,7 +103,7 @@ function chord(chordName) {
   } else if(noteLength == "1/2"){
     chordLength = "2n"
   } else if(noteLength == "3/4"){
-    chordLength = "3n"
+    chordLength = "1n"
   } else if(noteLength == "1"){
     chordLength = "1n"
   }
