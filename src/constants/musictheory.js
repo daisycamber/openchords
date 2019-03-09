@@ -453,7 +453,7 @@ var chordKeys = {
       "viio":"A Dim5",
     }
   },
-
+  /*
   "Major Pentatonic":{
     "C":{
       "I":"C Major",
