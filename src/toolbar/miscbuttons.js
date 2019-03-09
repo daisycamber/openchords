@@ -48,7 +48,7 @@ function addMiscButtons(toolbar){
   });
   toolbar.addChild(openchordsButton)
   var openchordsText =  new createjs.Text("OpenChords", TEXTTYPE, "#000000")
-  openchordsText.x = KEYSIZE * (11-0.05)
+  openchordsText.x = KEYSIZE * (11)
   openchordsText.y = KEYSIZE * 0.3
   toolbar.addChild(openchordsText)
 
