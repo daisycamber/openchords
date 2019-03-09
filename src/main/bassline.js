@@ -1,4 +1,5 @@
 // Add button to toggle the bassline
+/*
 function addToggleBasslineButton(toolbar){
   // Toggle bassline
   var toggleBasslineButton = new createjs.Shape();
@@ -17,4 +18,4 @@ function addToggleBasslineButton(toolbar){
   toggleBasslineText.x = KEYSIZE * 11.3
   toggleBasslineText.y = KEYSIZE * 2.3
   toolbar.addChild(toggleBasslineText)
-}
+}*/

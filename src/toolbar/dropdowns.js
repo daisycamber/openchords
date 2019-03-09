@@ -4,6 +4,17 @@ var notesDropdown
 var currentKey = "C"
 var currentInterval = "Major"
 var notesInChord = 3 // Number of notes in the chord
+var noteLength = "1/2"
+
+// Update the timing (delay) of a measure if there isnt a chord
+function updateMeasureTiming(){
+  if(recordedChords[selectedMeasure] == null){
+    chordLabels[selectedMeasure].text = noteLength
+    chordLabels[selectedMeasure].visible = true
+    chordLengths[selectedMeasure] = noteLength
+  }
+}
+
 function addDropdowns(){
   // Key dropdown menu
   dropdownKeys = new createjs.Container(); // Add invisible container for keys
@@ -12,10 +23,11 @@ function addDropdowns(){
   keyDropdown.graphics.beginFill("White")
   keyDropdown.graphics.drawRect(KEYSIZE * 2, 0, KEYSIZE, KEYSIZE);
   keyDropdown.addEventListener("click", function(event) {
-    if(dropdownKeys.visible == false) { // Toggle visible
-      dropdownKeys.visible = true
-    } else {
+    console.log(dropdownKeys.visible)
+    if(dropdownKeys.visible == true) { // Toggle visible
       dropdownKeys.visible = false
+    } else {
+      dropdownKeys.visible = true
     }
   });
   toolbar.addChild(keyDropdown);
@@ -33,6 +45,7 @@ function addDropdowns(){
     key.addEventListener("click", function(event) {
       keyText.text = keys[Math.ceil(event.stageY/KEYSIZE)-2]
       currentKey = keyText.text
+      dropdownKeys.visible = false;
       updateKeys();
       clearChords();
     });
@@ -47,7 +60,6 @@ function addDropdowns(){
 
   }
   toolbar.addChild(dropdownKeys)
-  toolbar.setChildIndex( dropdownKeys, toolbar.getNumChildren()-1);
 
   // Interval dropdown menu
   intervalDropdown = new createjs.Container(); // Add invisible container for keys
@@ -80,6 +92,7 @@ function addDropdowns(){
     key.addEventListener("click", function(event) {
       intervalText.text = intervals[Math.ceil(event.stageY/KEYSIZE)-2]
       currentInterval = intervalText.text
+      intervalDropdown.visible = false
       updateKeys();
       clearChords();
     });
@@ -89,8 +102,6 @@ function addDropdowns(){
     intervalDropdown.addChild(dropdownKey);
   }
   toolbar.addChild(intervalDropdown)
-  toolbar.setChildIndex( intervalDropdown, toolbar.getNumChildren()-1);
-
 
   // Notes dropdown menu
   notesDropdown = new createjs.Container(); // Add invisible container for keys
@@ -100,10 +111,10 @@ function addDropdowns(){
   notesDropdownButton.graphics.drawRect(KEYSIZE * 7, KEYSIZE * 3, KEYSIZE * 3, KEYSIZE);
   notesDropdownButton.addEventListener("click", function(event) {
     console.log("clicked this meme")
-    if(notesDropdown.visible == false) { // Toggle visible
-      notesDropdown.visible = true
-    } else {
+    if(notesDropdown.visible == true) { // Toggle visible
       notesDropdown.visible = false
+    } else {
+      notesDropdown.visible = true
     }
   });
   toolbar.addChild(notesDropdownButton);
@@ -133,4 +144,47 @@ function addDropdowns(){
     notesDropdown.addChild(dropdownKey);
   }
   toolbar.addChild(notesDropdown)
+
+  // Note length dropdown
+  noteLengthDropdown = new createjs.Container(); // Add invisible container for keys
+  noteLengthDropdown.visible = false;
+  var noteLengthDropdownButton = new createjs.Shape(); // Add dropdown button
+  noteLengthDropdownButton.graphics.beginFill("White")
+  noteLengthDropdownButton.graphics.drawRect(KEYSIZE * 6, KEYSIZE * 3, KEYSIZE, KEYSIZE);
+  noteLengthDropdownButton.addEventListener("click", function(event) {
+    console.log("clicked this meme")
+    if(noteLengthDropdown.visible == false) { // Toggle visible
+      noteLengthDropdown.visible = true
+    } else {
+      noteLengthDropdown.visible = false
+    }
+    updateMeasureTiming();
+  });
+  toolbar.addChild(noteLengthDropdownButton);
+
+  var noteLengthText =  new createjs.Text("1/2", TEXTTYPE, "#000000")
+  noteLengthText.x = KEYSIZE * 6 + KEYSIZE/8;
+  noteLengthText.y = KEYSIZE * 3 + KEYSIZE/3;
+  toolbar.addChild(noteLengthText);
+
+  for(var i = 0; i < noteLengths.length; i++){
+    var dropdownKey = new createjs.Container();
+    var dropdownKeyText = new createjs.Text(noteLengths[i], TEXTTYPE, "#000000")
+    dropdownKeyText.x = KEYSIZE * 6 + KEYSIZE/8;
+    dropdownKeyText.y = KEYSIZE/3 + (KEYSIZE*4) + KEYSIZE * i;
+    var key = new createjs.Shape();
+    key.graphics.beginFill("White")
+    key.graphics.drawRect(KEYSIZE * 6,(KEYSIZE * 3) + KEYSIZE * i + KEYSIZE, KEYSIZE, KEYSIZE);
+    key.addEventListener("click", function(event) {
+      noteLength = noteLengths[Math.ceil(event.stageY/KEYSIZE)-5]
+      noteLengthText.text = noteLength
+      noteLengthDropdown.visible = false
+      updateMeasureTiming();
+    });
+    noteLengthDropdown.addChild(key)
+    dropdownKey.addChild(dropdownKeyText);
+
+    noteLengthDropdown.addChild(dropdownKey);
+  }
+  toolbar.addChild(noteLengthDropdown)
 }

@@ -1,7 +1,6 @@
 // Scroll up and down
 var mouseDown = false
 function scroll(){
-
   var lastY = 0
   var lastX = 0
   stage.on("stagemousedown", function(evt) {
@@ -11,9 +10,9 @@ function scroll(){
   })
   stage.on("stagemouseup", function(evt) {
     mouseDown = false
-    dropdownKeys.visible = false
-    intervalDropdown.visible = false
-    notesDropdown.visible = false
+    //dropdownKeys.visible = false
+    //intervalDropdown.visible = false
+    //notesDropdown.visible = false
   })
   stage.on("stagemousemove", function(evt) {
     if(mouseDown && lastY > 0 && lastX > 0) {

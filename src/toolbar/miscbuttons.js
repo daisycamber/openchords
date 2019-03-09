@@ -1,9 +1,13 @@
+// Chords set for playback
+var playbackChords = []
+
+// Add misc buttons to the toolbar
 function addMiscButtons(toolbar){
   // Play button
   var playButton = new createjs.Shape();
   playButton.graphics.beginFill("White").drawRoundRectComplex(0, 0, KEYSIZE, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   playButton.addEventListener("click", function(event) {
-    currentChord = 0
+    playbackRecordedChords();
   });
   toolbar.addChild(playButton)
   var triangle = new createjs.Shape();
@@ -40,11 +44,23 @@ function addMiscButtons(toolbar){
   var openchordsButton = new createjs.Shape();
   openchordsButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 11, 0, KEYSIZE * 3, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   openchordsButton.addEventListener("click", function(event) {
-    window.open("http://openchords.org");
+    window.open("/");
   });
   toolbar.addChild(openchordsButton)
   var openchordsText =  new createjs.Text("OpenChords", TEXTTYPE, "#000000")
   openchordsText.x = KEYSIZE * (11-0.05)
   openchordsText.y = KEYSIZE * 0.3
   toolbar.addChild(openchordsText)
+
+  // OpenChords.org button
+  var donateButton = new createjs.Shape();
+  donateButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 11, KEYSIZE, KEYSIZE * 3, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
+  donateButton.addEventListener("click", function(event) {
+    window.open("/#donate");
+  });
+  toolbar.addChild(donateButton)
+  var donateText =  new createjs.Text("Donate", TEXTTYPE, "#000000")
+  donateText.x = KEYSIZE * (11+0.5)
+  donateText.y = KEYSIZE * 0.3 + KEYSIZE
+  toolbar.addChild(donateText)
 }

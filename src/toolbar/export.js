@@ -16,13 +16,43 @@ function addExportButton(toolbar){
 function exportMidi(){
   var midi = new Midi()
   var track = midi.addTrack()
-  for(var i = 0; i < recordedChords.length; i++){
-    if(recordedChords[i] != null){
-      for(var j = 0; j < recordedChords[i].length; j++){
+
+  currentChord = 0
+  playbackChords = []
+  playbackChordLengths = []
+  // What this does is optimize an array of recorded chords to an array of chords for playback with correct timing
+  for(var i = 0; i < recordedChords.length; i++) {
+    playbackChords[currentChord] = recordedChords[i] // Set playback to current chord
+    playbackChordLengths[currentChord] = chordLengths[i]
+    if(chordLengths[i] == "1/8"){
+      currentChord = currentChord + 1
+    } else if(chordLengths[i] == "1/4"){
+      currentChord = currentChord + 2
+    } else if(chordLengths[i] == "1/2"){
+      currentChord = currentChord + 4
+    } else if(chordLengths[i] == "1"){
+      currentChord = currentChord + 8
+    }
+  }
+  currentChord = playbackChords.length;
+
+  for(var i = 0; i < playbackChords.length; i++){
+    if(playbackChords[i] != null){
+      var chordDuration
+      if(playbackChordLengths[i] == "1/8"){
+        chordDuration = 0.5
+      } else if(playbackChordLengths[i] == "1/4"){
+        chordDuration = 1
+      } else if(playbackChordLengths[i] == "1/2"){
+        chordDuration = 2
+      } else if(playbackChordLengths[i] == "1"){
+        chordDuration = 4
+      }
+      for(var j = 0; j < playbackChords[i].length; j++){
         track.addNote({
-          name : recordedChords[i][j],
-          time : i,
-          duration: 2,
+          name : playbackChords[i][j],
+          time : i/4,
+          duration: chordDuration/2,
         });
       }
     }

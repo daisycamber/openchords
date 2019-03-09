@@ -14,19 +14,19 @@ function addOctaveButtons(toolbar){
   toolbar.addChild(octaveDown);
 
   var octaveTab = new createjs.Shape();
-  octaveTab.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE, KEYSIZE * 3, KEYSIZE * 5, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
+  octaveTab.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE, KEYSIZE * 3, KEYSIZE * 4, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   toolbar.addChild(octaveTab)
 
   var text =  new createjs.Text("Fourth Octave", TEXTTYPE, "#000000")
-  text.x = KEYSIZE * 2
+  text.x = KEYSIZE * 1.1
   text.y = KEYSIZE * 3.3
   toolbar.addChild(text)
 
   var octaveUpButton = new createjs.Shape();
-  octaveUpButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 6, KEYSIZE * 3, KEYSIZE, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
+  octaveUpButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 5, KEYSIZE * 3, KEYSIZE, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   toolbar.addChild(octaveUpButton)
   var octaveUp = new createjs.Shape();
-  octaveUp.graphics.beginFill("#000000").drawPolyStar(KEYSIZE * 6.5, KEYSIZE * 3.5, KEYSIZE * 0.5, 3, 0, 30);
+  octaveUp.graphics.beginFill("#000000").drawPolyStar(KEYSIZE * 5.5, KEYSIZE * 3.5, KEYSIZE * 0.5, 3, 0, 30);
   octaveUpButton.addEventListener("click", function(event) {
     if(octave <= 5){octave++;}
     text.text = octaves[octave]

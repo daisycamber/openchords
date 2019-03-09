@@ -24,7 +24,7 @@ function addMeasure(measure){
     chordsContainer.addChild(chordMarkers[measure][j]);
   }
   chordLabels[measure] =  new createjs.Text("", SUBTEXTTYPE, "#000000")
-  chordLabels[measure].x = (((stage.canvas.width)-KEYSIZE)/8) * measure + KEYSIZE * 1.1  + chordsContainer.x
+  chordLabels[measure].x = (((stage.canvas.width)-KEYSIZE)/8) * measure + KEYSIZE * 1.05  + chordsContainer.x
   chordLabels[measure].y = KEYSIZE * 4.1
   stage.addChild(chordLabels[measure])
 }
@@ -32,7 +32,7 @@ function addMeasure(measure){
 function addChordLabels(){
   for(var i = 0; i < 8; i++){
     chordLabels[i] =  new createjs.Text("", SUBTEXTTYPE, "#000000")
-    chordLabels[i].x = (((stage.canvas.width)-KEYSIZE)/8) * i + KEYSIZE * 1.1
+    chordLabels[i].x = (((stage.canvas.width)-KEYSIZE)/8) * i + KEYSIZE * 1.05
     chordLabels[i].y = KEYSIZE * 4.1
     stage.addChild(chordLabels[i])
   }
@@ -56,7 +56,6 @@ function addToolBar(){
 
   addMiscButtons(toolbar)
 
-
   addChordButtons(toolbar);
 
   addOctaveButtons(toolbar);
@@ -67,7 +66,7 @@ function addToolBar(){
 
   addSeventhNinthThirteenthButtons(toolbar);
 
-  addToggleBasslineButton(toolbar);
+  //addToggleBasslineButton(toolbar);
 
   /*
   // Donate
