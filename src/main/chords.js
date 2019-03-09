@@ -25,9 +25,7 @@ function chordCallback(chordNumber){
   } else if(playbackChordLengths[chordNumber] == "1"){
     chordLength = "1n"
   }
-  console.log(playbackChordLengths[chordNumber])
   for(var i = 0; i < playbackChords[chordNumber].length; i++){
-    console.log(playbackChords[chordNumber][i])
     synths[i].triggerAttackRelease(playbackChords[chordNumber][i], chordLength)
   }
 }
@@ -95,6 +93,8 @@ function chord(chordName) {
     chordLength = "4n"
   } else if(noteLength == "1/2"){
     chordLength = "2n"
+  } else if(noteLength == "3/4"){
+    chordLength = "3n"
   } else if(noteLength == "1"){
     chordLength = "1n"
   }
@@ -120,7 +120,6 @@ function chord(chordName) {
     synths[i].triggerAttackRelease(recordedChords[selectedMeasure][i], chordLength)
     chordMarkers[selectedMeasure][i].y =  KEYSIZE * (-1 * ((notes[i]+1)) + numKeys)
     chordMarkers[selectedMeasure][i].visible = true;
-    console.log(recordedChords[selectedMeasure][i])
   }
   var note
   // For adding the seventh, ninth and thirteenth
@@ -130,7 +129,6 @@ function chord(chordName) {
     synths[notesInChord+0].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+0], chordLength)
     chordMarkers[selectedMeasure][notesInChord+0].y =  KEYSIZE * (-1 * ((note+1)) + numKeys)
     chordMarkers[selectedMeasure][notesInChord+0].visible = true
-    console.log(recordedChords[selectedMeasure][notesInChord+0])
   }
   if(addNinth){
     note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][1] + ((octave) * 12) + 3
@@ -138,7 +136,6 @@ function chord(chordName) {
     synths[notesInChord+1].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+1], chordLength)
     chordMarkers[selectedMeasure][notesInChord+1].y =  KEYSIZE * (-1 * ((note+1)) + numKeys)
     chordMarkers[selectedMeasure][notesInChord+1].visible = true
-    console.log(recordedChords[selectedMeasure][notesInChord+1])
   }
   if(addThirteenth){
     note = chordNotes[chordKeys[currentInterval][currentKey][chordName]][3][2] + ((octave) * 12) + 3
@@ -146,7 +143,6 @@ function chord(chordName) {
     synths[notesInChord+2].triggerAttackRelease(recordedChords[selectedMeasure][notesInChord+2], chordLength)
     chordMarkers[selectedMeasure][notesInChord+2].y =  KEYSIZE * (-1 * ((note+1)) + numKeys)
     chordMarkers[selectedMeasure][notesInChord+2].visible = true
-    console.log(recordedChords[selectedMeasure][notesInChord+2])
   }
 
   chordLabels[selectedMeasure].visible = true;
@@ -177,18 +173,16 @@ function playbackRecordedChords(){
   playbackChordLengths = []
   // What this does is optimize an array of recorded chords to an array of chords for playback with correct timing
   for(var i = 0; i < recordedChords.length; i++) {
-    //console.log(recordedChords[i][0])
     playbackChords[currentChord] = recordedChords[i] // Set playback to current chord
     playbackChordLengths[currentChord] = chordLengths[i]
-    console.log(i)
-    console.log(chordLengths[i])
-    console.log(playbackChordLengths[currentChord])
     if(chordLengths[i] == "1/8"){
       currentChord = currentChord + 1
     } else if(chordLengths[i] == "1/4"){
       currentChord = currentChord + 2
     } else if(chordLengths[i] == "1/2"){
       currentChord = currentChord + 4
+    } else if(chordLengths[i] == "3/4"){
+      currentChord = currentChord + 6
     } else if(chordLengths[i] == "1"){
       currentChord = currentChord + 8
     }

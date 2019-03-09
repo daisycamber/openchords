@@ -1,3 +1,23 @@
+
+function getDate(){
+  var today = new Date();
+  var dd = today.getDate();
+
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullYear();
+  if(dd<10)
+  {
+      dd='0'+dd;
+  }
+
+  if(mm<10)
+  {
+      mm='0'+mm;
+  }
+  today = mm+'-'+dd+'-'+yyyy;
+  return today
+}
+
 // Add the button to export to midi
 function addExportButton(toolbar){
   var exportButton = new createjs.Shape();
@@ -30,6 +50,8 @@ function exportMidi(){
       currentChord = currentChord + 2
     } else if(chordLengths[i] == "1/2"){
       currentChord = currentChord + 4
+    } else if(chordLengths[i] == "3/4"){
+      currentChord = currentChord + 6
     } else if(chordLengths[i] == "1"){
       currentChord = currentChord + 8
     }
@@ -45,6 +67,8 @@ function exportMidi(){
         chordDuration = 1
       } else if(playbackChordLengths[i] == "1/2"){
         chordDuration = 2
+      } else if(playbackChordLengths[i] == "3/4"){
+        chordDuration = 3
       } else if(playbackChordLengths[i] == "1"){
         chordDuration = 4
       }
@@ -71,5 +95,5 @@ function exportMidi(){
       window.URL.revokeObjectURL(url);
     };
   }());
-  saveByteArray([midi.toArray()], 'openchords.midi');
+  saveByteArray([midi.toArray()], "openchords-" + getDate() + ".midi");
 }
