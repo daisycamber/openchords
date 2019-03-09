@@ -22,7 +22,10 @@ function chordCallback(chordNumber){
     chordLength = "4n"
   } else if(playbackChordLengths[chordNumber] == "1/2"){
     chordLength = "2n"
-  } else if(playbackChordLengths[chordNumber] == "1"){
+  } else if(playbackChordLengths[chordNumber] == "3/4"){
+    chordLength = "3n"
+  }
+  else if(playbackChordLengths[chordNumber] == "1"){
     chordLength = "1n"
   }
   for(var i = 0; i < playbackChords[chordNumber].length; i++){
