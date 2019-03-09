@@ -14,7 +14,7 @@ function addSelector(){
   selector.graphics.beginFill("Pink")
   selector.graphics.drawRect(KEYSIZE, TOOLSSIZE, (stage.canvas.width- KEYSIZE)/8, stage.canvas.height - TOOLSSIZE);
   stage.addChild(selector);
-  background.addEventListener("mousedown", function(event) {
+  background.addEventListener("pressup", function(event) {
     if(event.stageY > TOOLSSIZE && event.stageX > KEYSIZE){
       selectedMeasure = Math.floor(((chordsContainer.x * -1) + (event.stageX - KEYSIZE)) / ((stage.canvas.width-KEYSIZE)/8))
       selector.x = chordsContainer.x + ((stage.canvas.width - KEYSIZE)/8) * selectedMeasure

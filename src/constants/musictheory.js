@@ -452,7 +452,978 @@ var chordKeys = {
       "vi":"G Minor",
       "viio":"A Dim5",
     }
-  }
+  },
+  /*
+  "Major Pentatonic":{
+    "C":{
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
+    },
+    "Db":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "D":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Eb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "E":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "F":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Gb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "G":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Ab":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "A":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Bb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "B":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    }
+  },
+  "Minor Pentatonic":{
+    "C":{
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"Eb Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"Ab Major",
+      "VII":"Bb Major",
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"Eb Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"Ab Minor",
+      "viio":"Bb Dim5",
+    },
+    "Db":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "D":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "Eb":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "E":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio"::
+    },
+    "F":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "Gb":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "G":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "Ab":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "A":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "Bb":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    },
+    "B":{
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+    }
+  },
+  "Mixolydian":{
+    "C":{
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Dim5",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"Bb Minor",
+      "i":"C Minor",
+      "iio":"D Major",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"Bb Major",
+    },
+    "Db":{
+      "I":"Db Major"
+      "ii":"Eb Minor"
+      "iii":"F Dim5"
+      "IV":"Gb Major"
+      "V":"Ab Major"
+      "vi":"Bb Minor"
+      "viio":"B Minor"
+      "i":"Db Minor"
+      "iio":"Eb Major"
+      "III":"F Major"
+      "iv":"Gb Minor"
+      "v":"Ab Minor"
+      "VI":"Bb Major"
+      "VII":"B Major"
+    },
+    "D":{
+      "I":"D Major"
+      "ii":"E Minor"
+      "iii":"F# Dim5"
+      "IV":"G Major"
+      "V":"A Major"
+      "vi":"B Minor"
+      "viio":"C Minor"
+      "i":"D Minor"
+      "iio":"E Major"
+      "III":"F# Major"
+      "iv":"G Minor"
+      "v":"A Minor"
+      "VI":"B Major"
+      "VII":"C Major"
+    },
+    "Eb":{
+      "I":"Eb Major"
+      "ii":"F Minor"
+      "iii":"G Dim5"
+      "IV":"Ab Major"
+      "V":"Bb Major"
+      "vi":"C Minor"
+      "viio":"Db Minor"
+      "i":"Eb Minor"
+      "iio":"F Major"
+      "III":"G Major"
+      "iv":"Ab Minor"
+      "v":"Bb Minor"
+      "VI":"C Major"
+      "VII":"Db Major"
+    },
+    "E":{
+      "I":"E Major"
+      "ii":"F# Minor"
+      "iii":"G# Dim5"
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "F":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Gb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "G":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Ab":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "A":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Bb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "B":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    }
+  },
+  "Dorian":{
+    "C":{
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"Eb Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Dim5",
+      "viio":"Bb Minor",
+      "i":"C Minor",
+      "iio":"D Major",
+      "III":"Eb Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"Bb Major"
+    },
+    "Db":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "D":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Eb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "E":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "F":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Gb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "G":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Ab":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "A":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Bb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "B":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    }
+  },
+  "Lydian":{
+    "C":{
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F# Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Minor",
+      "i":"C Minor",
+      "iio":"D Major",
+      "III":"E Major",
+      "iv":"F# Dim5",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
+    },
+    "Db":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "D":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Eb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "E":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "F":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Gb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "G":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Ab":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "A":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "Bb":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    },
+    "B":{
+      "I":
+      "ii":
+      "iii":
+      "IV":
+      "V":
+      "vi":
+      "viio":
+      "i":
+      "iio":
+      "III":
+      "iv":
+      "v":
+      "VI":
+      "VII":
+    }
+  }*/
 
 }
-var intervals = ["Major","Minor"]//,"Major Pentatonic","Minor Pentatonic","Blues Major","Blues Minor","Mixolydian","Dorian","Lydian"]
+var intervals = ["Major","Minor","Major Pentatonic","Minor Pentatonic","Blues Major","Blues Minor","Mixolydian","Dorian","Lydian"]
