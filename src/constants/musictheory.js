@@ -453,7 +453,7 @@ var chordKeys = {
       "viio":"A Dim5",
     }
   },
-  /*
+
   "Major Pentatonic":{
     "C":{
       "I":"C Major",
@@ -472,180 +472,180 @@ var chordKeys = {
       "VII":"B Major"
     },
     "Db":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "D":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "Eb":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "E":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "F":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "Gb":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "G":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "Ab":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5"
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "A":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "Bb":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     },
     "B":{
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"E Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"A Minor",
+      "viio":"B Dim5",
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"E Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"A Major",
+      "VII":"B Major"
     }
   },
   "Minor Pentatonic":{
@@ -666,36 +666,36 @@ var chordKeys = {
       "viio":"Bb Dim5",
     },
     "Db":{
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"Eb Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"Ab Major",
+      "VII":"Bb Major",
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"Eb Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"Ab Minor",
+      "viio":"Bb Dim5",
     },
     "D":{
-      "i":
-      "iio":
-      "III":
-      "iv":
-      "v":
-      "VI":
-      "VII":
-      "I":
-      "ii":
-      "iii":
-      "IV":
-      "V":
-      "vi":
-      "viio":
+      "i":"C Minor",
+      "iio":"D Dim5",
+      "III":"Eb Major",
+      "iv":"F Minor",
+      "v":"G Minor",
+      "VI":"Ab Major",
+      "VII":"Bb Major",
+      "I":"C Major",
+      "ii":"D Minor",
+      "iii":"Eb Minor",
+      "IV":"F Major",
+      "V":"G Major",
+      "vi":"Ab Minor",
+      "viio":"Bb Dim5",
     },
     "Eb":{
       "i":
@@ -841,7 +841,7 @@ var chordKeys = {
       "vi":
       "viio":
     }
-  },
+  },/*
   "Mixolydian":{
     "C":{
       "I":"C Major",
@@ -1426,4 +1426,4 @@ var chordKeys = {
   }*/
 
 }
-var intervals = ["Major","Minor","Major Pent.","Minor Pent.","Blues Major","Blues Minor","Mixolydian","Dorian","Lydian"]
+var intervals = ["Major","Minor"]//,"Major Pent.","Minor Pent.","Blues Major","Blues Minor","Mixolydian","Dorian","Lydian"]

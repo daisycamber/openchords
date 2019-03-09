@@ -12,7 +12,7 @@ function addInversionButtons(toolbar){
       chordMode = 0
     });
     toolbar.addChild(defaultTriad)
-    var defaultTriadText =  new createjs.Text("Triad", TEXTTYPE, "#000000")
+    var defaultTriadText =  new createjs.Text("Default", TEXTTYPE, "#000000")
     defaultTriadText.x = KEYSIZE * 7.3
     defaultTriadText.y = KEYSIZE * 0.3
     toolbar.addChild(defaultTriadText)
