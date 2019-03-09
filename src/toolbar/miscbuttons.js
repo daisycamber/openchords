@@ -33,6 +33,9 @@ function addMiscButtons(toolbar){
   deleteButton.addEventListener("click", function(event) {
     deleteChord();
   });
+  deleteButton.addEventListener("dblclick", function(event) {
+    clearChords();
+  });
   toolbar.addChild(deleteButton)
   var deleteText =  new createjs.Text("X", TEXTTYPE, "#000000")
   deleteText.x = KEYSIZE * 10.3

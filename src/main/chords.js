@@ -52,6 +52,16 @@ function deleteChord(){
   chordLabels[selectedMeasure].visible = false
   chordLengths[selectedMeasure] = null
 }
+function clearChords(){
+  for (var i = 0; i < recordedChords.length; i++){
+    for(var j = 0; j < 9; j++){
+      chordMarkers[i][j].visible = false
+    }
+    recordedChords[i] = null
+    chordLabels[i].visible = false
+    chordLengths[i] = null
+  }
+}
 
 function addChordMarkers() {
   chordsContainer = new createjs.Container()
