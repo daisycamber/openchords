@@ -17,16 +17,18 @@ function scroll(){
   stage.on("stagemousemove", function(evt) {
     if(mouseDown && lastY > 0 && lastX > 0) {
       // Scroll piano keys up/down
-      if((pianoKeysContainer.y + evt.stageY - lastY <= 0) && (pianoKeysContainer.y + evt.stageY - lastY >= (KEYSIZE * numKeys * -1) + (stage.canvas.height))){
+      if((pianoKeysContainer.y + evt.stageY - lastY <= KEYSIZE) && (pianoKeysContainer.y + evt.stageY - lastY >= (KEYSIZE * numKeys * -1) + (stage.canvas.height))){
         pianoKeysContainer.y = pianoKeysContainer.y + evt.stageY - lastY
         chordsContainer.y = chordsContainer.y + evt.stageY - lastY
       } else {
         // If we are at the top or bottom, align to top or bottom
         if(evt.stageY - lastY < 0){
           pianoKeysContainer.y = (KEYSIZE * numKeys * -1) + (stage.canvas.height)
+          chordsContainer.y = (KEYSIZE * numKeys * -1) + (stage.canvas.height) - KEYSIZE
         }
         else {
-          pianoKeysContainer.y = 0
+          chordsContainer.y = 0
+          pianoKeysContainer.y = KEYSIZE
         }
       }
 
@@ -35,18 +37,11 @@ function scroll(){
       if(chordsContainer.x + (evt.stageX - lastX) <= 0){
         chordsContainer.x = chordsContainer.x + evt.stageX - lastX
         selector.x = selector.x + evt.stageX - lastX
-
-
         for(var i = 0; i < chordLabels.length; i++){
           if(chordLabels[i] != null){
             chordLabels[i].x = chordLabels[i].x + evt.stageX - lastX
           }
         }
-        /*
-        for(var i = 0; i < lengthMeasures.length; i++){
-          //console.log("here")
-          lengthMeasures[i].x = lengthMeasures[i].x + evt.stageX - lastX
-        }*/
       }
       else if(chordsContainer.x + (evt.stageX - lastX) >= 0){
         chordsContainer.x = 0
@@ -57,11 +52,6 @@ function scroll(){
             chordLabels[i].x = (((stage.canvas.width)-KEYSIZE)/8) * i + KEYSIZE * 1.1
           }
         }
-        /*
-        for(var i = 0; i < lengthMeasures.length; i++) {
-          //console.log("here")
-          lengthMeasures[i].x = 0
-        }*/
       }
 
       // Scroll length measures

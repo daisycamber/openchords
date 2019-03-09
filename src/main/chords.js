@@ -56,6 +56,7 @@ function deleteChord(){
 function addChordMarkers() {
   chordsContainer = new createjs.Container()
   stage.addChild(chordsContainer)
+  chordsContainer.y = KEYSIZE * -25
 
   for (var i = 0; i < 8; i++){
     chordMarkers[i] = []
@@ -107,7 +108,7 @@ function chord(chordName) {
     // Record the note as it falls on the keyboard, no longer numerical but a string value
     recordedChords[selectedMeasure][i] = keyboard[notes[i]]
     synths[i].triggerAttackRelease(recordedChords[selectedMeasure][i], chordLength)
-    chordMarkers[selectedMeasure][i].y =  KEYSIZE * (-1 * ((notes[i] + 26)) + numKeys)
+    chordMarkers[selectedMeasure][i].y =  KEYSIZE * (-1 * ((notes[i])) + numKeys)
     chordMarkers[selectedMeasure][i].visible = true;
   }
   var note
