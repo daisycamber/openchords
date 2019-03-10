@@ -76,7 +76,7 @@ var chordKeys = {
       "III":"E Major", // E MAJOR
       "iv":"F Minor", // F MINOR
       "v":"G Minor", // G MINOR
-      "VI":"A Minor", //A MAJOR
+      "VI":"A Major", //A MAJOR
       "VII":"B Major" // B MAJOR
     },
     "Db":{
