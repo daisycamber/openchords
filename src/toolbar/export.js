@@ -73,11 +73,13 @@ function exportMidi(){
         chordDuration = 4
       }
       for(var j = 0; j < playbackChords[i].length; j++){
-        track.addNote({
-          name : playbackChords[i][j],
-          time : i/4,
-          duration: chordDuration/2,
-        });
+        if(playbackChords[i][j] != null){
+          track.addNote({
+            name : playbackChords[i][j],
+            time : i/4,
+            duration: chordDuration/2,
+          });
+        }
       }
     }
   }
