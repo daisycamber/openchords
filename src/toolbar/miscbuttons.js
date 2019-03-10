@@ -33,7 +33,7 @@ function addMiscButtons(toolbar){
   var timeout;
   var timeout;
   var lastTap = 0;
-  deleteButton.addEventListener('touchend', function(event) {
+  deleteButton.addEventListener('click', function(event) {
       var currentTime = new Date().getTime();
       var tapLength = currentTime - lastTap;
       clearTimeout(timeout);
