@@ -30,12 +30,30 @@ function addMiscButtons(toolbar){
   // Delete the chord
   var deleteButton = new createjs.Shape();
   deleteButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 10, KEYSIZE * 3, KEYSIZE, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
-  deleteButton.addEventListener("click", function(event) {
+  var timeout;
+  var timeout;
+  var lastTap = 0;
+  deleteButton.addEventListener('touchend', function(event) {
+      var currentTime = new Date().getTime();
+      var tapLength = currentTime - lastTap;
+      clearTimeout(timeout);
+      if (tapLength < 500 && tapLength > 0) {
+          clearChords();
+          event.preventDefault();
+      } else {
+          deleteChord();
+          timeout = setTimeout(function() {
+              clearTimeout(timeout);
+          }, 500);
+      }
+      lastTap = currentTime;
+  });
+  /*deleteButton.addEventListener("click", function(event) {
     deleteChord();
   });
   deleteButton.addEventListener("dblclick", function(event) {
     clearChords();
-  });
+  });*/
   toolbar.addChild(deleteButton)
   var deleteText =  new createjs.Text("X", TEXTTYPE, "#000000")
   deleteText.x = KEYSIZE * 10.3
