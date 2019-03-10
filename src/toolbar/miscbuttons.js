@@ -65,7 +65,7 @@ function addMiscButtons(toolbar){
   var openchordsButton = new createjs.Shape();
   openchordsButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 11, 0, KEYSIZE * 3, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   openchordsButton.addEventListener("click", function(event) {
-    window.open("/");
+    window.open("/home.html");
   });
   toolbar.addChild(openchordsButton)
   var openchordsText =  new createjs.Text("OpenChords", TEXTTYPE, "#000000")
@@ -77,7 +77,7 @@ function addMiscButtons(toolbar){
   var donateButton = new createjs.Shape();
   donateButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE * 11, KEYSIZE, KEYSIZE * 3, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   donateButton.addEventListener("click", function(event) {
-    window.open("/#donate");
+    window.open("/home.html/#donate");
   });
   toolbar.addChild(donateButton)
   var donateText =  new createjs.Text("Donate", TEXTTYPE, "#000000")
