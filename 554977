@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                                <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3" />
+        <title>Log In | Startup Ranking</title>
+        <meta name="description" content="Log in with your Twitter, Facebook or LinkedIn account in Startup Ranking." />
+        <meta property="og:site_name" content="StartupRanking" />
+        <meta property="og:url" content="https://www.startupranking.com/login" />
+        <meta property="og:title" content="Log In | Startup Ranking" />
+        <meta property="fb:admins" content="1484906440" />
+        <meta property="fb:app_id" content="373997469370914" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.startupranking.com/login" />
+        <meta name="twitter:title" content="Log In | Startup Ranking" />
+        <meta name="twitter:site" content="@startupranking" />
+                    <meta property="og:type" content="website"/>
+            <meta property="og:image" content="https://files.startupranking.com/startup/8954_24cadbf6d451d7740324e74b747bfeebf9239031_startupranking.png"/>
+            <meta property="og:description" content="Log in with your Twitter, Facebook or LinkedIn account in Startup Ranking."/>
+            <meta name="twitter:image:src" content="https://files.startupranking.com/startup/8954_24cadbf6d451d7740324e74b747bfeebf9239031_startupranking.png" />
+            <meta name="twitter:description" content="Log in with your Twitter, Facebook or LinkedIn account in Startup Ranking." />
+                            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/reset.css?v=2" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/start/jquery-ui-1.10.4.custom.min.css?v=1.1" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/select2/select2.css" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/select2/select2-bootstrap.css" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/select2/select2-flat.css" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/font-awesome.css?v=1.1" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/flexslider.css" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/flags.css?v=3.5" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/main.css?v=9.9" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/responsive.css?v=3.7" />
+            <link rel="stylesheet" type="text/css" href="/bundles/genboomain/css/style.css?v=26.5" />
+            <!--[if lte IE 8]>
+            <script src="/bundles/genboomain/js/layout/html5shiv.min.js"></script>
+            <![endif]-->
+                            <!-- Hotjar Tracking Code for http://www.startupranking.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:548093,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>                <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-40873839-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+        gtag('config', 'UA-40873839-1'); // GoogleAnalytics
+    gtag('config', 'AW-1006436223'); // GoogleAds
+</script>            <script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="//v2.zopim.com/?26WA6gMraAVJgC9Wd6lZjX8OddzMtb6Y";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<script type="text/javascript">
+    </script>    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#version=v2.0&xfbml=1&appId=373997469370914";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        
+        
+    <header>
+    <div class="wrapper group">
+        <h1><a class="logo" href="/">Startup Ranking</a></h1>
+        
+                
+        <div class="search">
+            <input type="text" id="search" name="search">
+            <button id="search-button">Search</button>
+        </div>
+        <ul class="top-nav group">
+            <li><a href="/what-is-a-startup">What is a startup?</a></li>
+            <li><a href="/how-it-works">How It Works</a></li>
+        </ul>
+    </div>
+    <nav class="sm-menu">
+        <button data-collapse="#smmenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="smmenu" class="group" style="display:none;">
+            <li><a href="/top">Top Ranking</a></li>
+            <li><a href="/countries">Countries</a></li>
+            <li><a href="/booster">SR Booster</a></li>
+            <li><a href="/advertising/auction">SR Advertising</a></li>
+            <li><a href="/pro">SR Pro</a></li>
+            <li><a href="/analytics">SR Analytics</a></li>
+            <li><a href="/startup/new">New Startups</a></li>
+            <li><a href="/startup/register">Register Startup</a></li>
+            <li><a href="/what-is-a-startup">What is a startup?</a></li>
+            <li><a href="/how-it-works">How It Works</a></li>
+            <li><a href="/news">News</a></li>
+            <li></li>
+                            <li><a href="/login">Log In</a></li>
+                    </ul>
+    </nav>
+    <div class="sm-search">
+        <input type="text" id="sm-search" name="sm-search">
+        <button id="sm-search-button">Search</button>
+    </div>
+    <nav class="main-menu">
+        <div class="wrapper group">
+            <ul class="group">
+                <li>
+                    <a href="javascript:void(0)" class="sub-menu-option">&nbsp;&nbsp;&nbsp;&nbsp;Products&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <ul class="sub-menu" style="display: none;">
+                        <li><a href="/booster">SR Booster <div class="sub-menu-option-help">Submit your startup to 50+ directories.</div></a></li>
+                        <li><a href="/pro">SR Pro <div class="sub-menu-option-help">Search, track & analyze startups/companies.</div></a></li>
+                        <li><a href="/advertising/auction">SR Advertising <div class="sub-menu-option-help">Get your startup in front of founders and potential users.</div></a></li>
+                    </ul>
+                </li>
+                <li><a href="/top">Top Ranking</a></li>
+                <!--<li><a href="/booster">SR Booster <div class="menu-option-help">!!!</div></a></li>-->
+                <li><a href="/countries">Countries</a></li>
+                <li><a href="/startup/new">New Startups</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/startup/register">Register Startup</a></li>
+                                    <li><a href="/login">Log In</a></li>
+                            </ul>
+        </div>
+    </nav>
+</header>
+
+                
+    
+        
+    <div class="wrapper container group">
+        <section class="login group">
+            <div class="cols">
+                <div class="col-04">
+                </div>
+                <div class="col-02">
+                    <h2>Log In</h2>
+                    <br /><br />
+                    <small style="font-size: 15px;">We will only require your name, email and picture.</small>
+                    <br /><br /><br />
+                    <ul class="signin">
+                        <li><a href="/connect/twitter" class="twitter"><span><i class="fa fa-twitter"></i></span>Twitter</a></li>
+                        <br />
+                        <li><a href="/connect/facebook" class="facebook"><span><i class="fa fa-facebook"></i></span>Facebook</a></li>
+                        <br />
+                        <li><a href="/connect/linkedin" class="linkedin"><span><i class="fa fa-linkedin"></i></span>LinkedIn</a></li>
+                        <br />
+                        <li><a href="/connect/google" class="google"><span><i class="fa fa-google"></i></span>Google</a></li>
+                    </ul>
+                    <br /><br />
+                    <br /><br />
+                    <small>* By creating an account, you agree to our <a href="/corp/terms-of-service">Terms of Service</a> and <a href="/corp/privacy-policy">Privacy Policy</a>.</small><br />
+                    <small>* You can login with many social networks and later merge your accounts.</small><br />
+                    <small>* Do you already have an account? Do not forget to login using the same social network.</small><br />
+                </div>
+                <div class="col-04">
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    
+    <footer>
+    <div class="wrapper group">
+        <ul class="access">
+                            <li><a href="/login">Login</a></li>
+                    </ul>
+        <ul>
+            <li><a href="/top">Top Ranking</a></li>
+            <li><a href="/countries">Countries</a></li>
+            <li><a href="/startup/new">New Startups</a></li>
+            <li><a href="/analytics">SR Analytics</a></li>
+            <li><a href="/advertising/auction">SR Advertising</a></li>
+            <li><a href="/mobile">Mobile</a></li>
+            <li><a href="https://chrome.google.com/webstore/detail/startupranking/mpfckdfdnhfhjkkbnbojggahfabmmpad" target="_blank">Browser Extension</a></li>
+        </ul>
+        <ul class="footer-menu group">
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/what-is-a-startup">Startup?</a></li>
+            <li><a href="/how-it-works">How It Works</a></li>
+            <li><a href="/startup/register">Register Startup</a></li>
+            <li><a href="/corp/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/corp/terms-of-service">Terms of Service</a></li>
+            <li><a href="/corp/contact">Contact</a></li>
+            <li class="social">
+                <a href="https://www.facebook.com/StartupRanking/" class="facebook" title="Facebook" target="_blank">Facebook</a>
+                <a href="https://twitter.com/startupranking " class="twitter" title="Twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/company/startupranking" class="linkedin" title="LinkedIn" target="_blank">LinkedIn</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+    
+        <div id="loader" class="loader"><span class="spinner" title="Loading..."></span></div>
+        
+                    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            
+            <script src="/bundles/genboomain/js/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/jquery/jquery-easing.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/jquery/jquery.flexslider.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/jquery/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/jquery/jquery.number.min.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/select2/select2.min.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/layout/tabs.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/layout/collapsables.js" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/layout/main.js?v=2.9" type="text/javascript"></script>
+            <script src="/bundles/genboomain/js/layout/dynamicSelect2.js?v=1.1" type="text/javascript"></script>
+            <script src="/bundles/genbooarticle/js/article/articleUrlComponent.js?v=1.3" type="text/javascript"></script>
+            
+            <script src="/bundles/fosjsrouting/js/router.js"></script>
+            <script src="/bundles/genboogeneral/js/general/routes.js?v=2.07" type="text/javascript"></script>
+            <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"128447d4e4","applicationID":"19195483","transactionName":"ZVQGMhZUX0sHBxYIC1weJQUQXF5WSSMHDwZdXikHDVtzTQgADgReflAdCRFBC0sOCxUpAVNVARQ=","queueTime":0,"applicationTime":20,"atts":"SRMFRF5OTEU=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
