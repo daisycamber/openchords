@@ -21,7 +21,7 @@ function chordCallback(chordNumber){
     synths[i].triggerRelease();
   }
 
-  var chordLength
+  var chordLength;
   if(playbackChordLengths[chordNumber] == "1/8"){
     chordLength = "8n"
   } else if(playbackChordLengths[chordNumber] == "1/4"){
@@ -41,7 +41,7 @@ function chordCallback(chordNumber){
 
 // Called when chord is selected
 function playChord(chordNumber){
-  if(recordedChords[chordNumber]){
+  if(recordedChords[chordNumber] != null){
     // Stop all all synths
     for(var i = 0; i < synths.length; i++){
       synths[i].triggerRelease();
@@ -57,7 +57,7 @@ function playChord(chordNumber){
     } else if(chordLengths[chordNumber] == "3/4"){
       chordLength = "1n"
     }
-    else if(chordLengths`[chordNumber] == "1"){
+    else if(chordLengths[chordNumber] == "1"){
       chordLength = "1n"
     }
     for(var i = 0; i < recordedChords[chordNumber].length; i++){
@@ -229,4 +229,4 @@ function addChords(){
   addSynths();
   addChordMarkers();
   addChordPlayer();
-}
+}2
