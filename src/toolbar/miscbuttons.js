@@ -19,6 +19,10 @@ function addMiscButtons(toolbar){
   pauseButton.graphics.beginFill("White").drawRoundRectComplex(KEYSIZE, 0, KEYSIZE, KEYSIZE, KEYROUND, KEYROUND, KEYROUND, KEYROUND);
   pauseButton.addEventListener("click", function(event) {
     currentChord = playbackChords.length
+    // Stop all all synths
+    for(var i = 0; i < synths.length; i++){
+      synths[i].triggerRelease();
+    }
   });
   toolbar.addChild(pauseButton)
   var pauseRect = new createjs.Shape();
