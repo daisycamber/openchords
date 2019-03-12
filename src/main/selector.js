@@ -18,7 +18,7 @@ function addSelector(){
     if(event.stageY > TOOLSSIZE && event.stageX > KEYSIZE){
       selectedMeasure = Math.floor(((chordsContainer.x * -1) + (event.stageX - KEYSIZE)) / ((stage.canvas.width-KEYSIZE)/8))
       selector.x = chordsContainer.x + ((stage.canvas.width - KEYSIZE)/8) * selectedMeasure
-
+      playChord(selectedMeasure)
       /*for(var i = 0; i < 8; i++){
         if(event.stageX > KEYSIZE + ((stage.canvas.width-KEYSIZE)/8) * i && event.stageX < KEYSIZE + ((stage.canvas.width-KEYSIZE)/8) * (i+1)){
           selector.x = (stage.canvas.width - KEYSIZE)/8 * i

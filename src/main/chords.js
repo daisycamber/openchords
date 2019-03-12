@@ -39,6 +39,33 @@ function chordCallback(chordNumber){
   }
 }
 
+// Called when chord is selected
+function playChord(chordNumber){
+  if(recordedChords[chordNumber]){
+    // Stop all all synths
+    for(var i = 0; i < synths.length; i++){
+      synths[i].triggerRelease();
+    }
+
+    var chordLength
+    if(chordLengths[chordNumber] == "1/8"){
+      chordLength = "8n"
+    } else if(chordLengths[chordNumber] == "1/4"){
+      chordLength = "4n"
+    } else if(chordLengths[chordNumber] == "1/2"){
+      chordLength = "2n"
+    } else if(chordLengths[chordNumber] == "3/4"){
+      chordLength = "1n"
+    }
+    else if(chordLengths`[chordNumber] == "1"){
+      chordLength = "1n"
+    }
+    for(var i = 0; i < recordedChords[chordNumber].length; i++){
+      synths[i].triggerAttackRelease(recordedChords[chordNumber][i], chordLength)
+    }
+  }
+}
+
 function clearChords(){
   for (var i = 0; i < recordedChords.length; i++){
     if(recordedChords[i]){
