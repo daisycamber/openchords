@@ -6,7 +6,7 @@ function main(){
   createjs.Touch.enable(stage)
   // Fit canvas to screen
   stage.canvas.width = window.innerWidth;
-  stage.canvas.height = window.innerHeight// - 90;
+  stage.canvas.height = window.innerHeight - 90;
 
   // Add functionality
   addSelector();
