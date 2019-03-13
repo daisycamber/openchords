@@ -148,7 +148,7 @@ var chordKeys = {
       "ii":"G Minor", // G MINOR
       "iii":"A Minor", // A MINOR
       "IV":"Bb Major", // Bb MAJOR
-      "V":"C Minor", // C MAJOR
+      "V":"C Major", // C MAJOR
       "vi":"D Minor", // D MINOR
       "viio":"E Dim5", // E DIM
       "i":"F Minor", // F MINOR
